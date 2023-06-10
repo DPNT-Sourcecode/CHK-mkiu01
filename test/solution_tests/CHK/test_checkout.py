@@ -23,5 +23,12 @@ class TestCheckout():
     def test_checkout_multibuy_b(self):
         assert checkout("BB") == 45
 
+    def test_checkout_multibuy_a_double(self):
+        assert checkout("AAAAAA") == 260
+
+    def test_checkout_multibuy_a_double_plus_another(self):
+        assert checkout("AAAAAAA") == 310
+
+
 
 
