@@ -104,11 +104,17 @@ def checkout(skus):
         offer_count, any_item, offer_price = offer
         # count the items to discount in desc price order,
         # to ensure that we always favour the customer by giving the max discount
+        sorted_any_item = list(any_item)
+        sorted_any_item.sort(key=lambda item: sku_prices[item], reverse=True)
+        
+
+
         total_any_item_count = 0
-        for item in any_item:
+        for item in sorted_any_item:
             if item in basket:
                 total_any_item_count += basket[item]
         num_offers = total_any_item_count // offer_count
         
     return total
+
 
