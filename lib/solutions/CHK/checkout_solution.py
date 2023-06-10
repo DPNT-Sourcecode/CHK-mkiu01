@@ -1,7 +1,6 @@
 sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
 
 # Special offers dict mapping item to a tuple (count, price), for offers applying to individual SKUs
-#special_offers = {'A': (3, 130), 'B': (2, 45)}
 special_offers = [(5, 'A', 200), (3, 'A', 130), (2, 'B', 45)]
 
 # Special offers giving a free item when other items are purchased
@@ -23,13 +22,6 @@ def checkout(skus):
     total = 0
     for item, count in basket.items():
         if item in sku_prices.keys():
-            #if item in special_offers:
-            #    # how many times are we repeating the offer in the basket
-            #    num_offers = count // special_offers[item][0]
-            #    # any additional item that we can't group in the offer
-            #    leftover_count = count % special_offers[item][0]
-            #    total += num_offers * special_offers[item][1] + leftover_count * sku_prices[item]
-            #else:
             total += sku_prices[item] * count
         else:
             return -1
@@ -39,15 +31,19 @@ def checkout(skus):
         offer_count, item, offer_price = special_offer
         if item in basket:
             while basket[item] >= offer_count:
-                
+                # calculate the discount
+                full_price = sku_prices[item] * offer_count
                 discount = full_price - offer_price
+                total -= discount
+                # remove item from the basket after calculating the discount
+                basket[item] -= offer_count
 
-    for item, count in basket.items():
-        if item in special_offers:
-            # how many times are we repeating the offer in the basket
-            num_offers = count // special_offers[item][0]
-            discount = num_offers * (sku_prices[item] * num_offers - special_offers[item][1])
-            total -= discount
+    #for item, count in basket.items():
+    #    if item in special_offers:
+    #        # how many times are we repeating the offer in the basket
+    #        num_offers = count // special_offers[item][0]
+    #        discount = num_offers * (sku_prices[item] * num_offers - special_offers[item][1])
+    #        total -= discount
 
     # calculate discount for more offers
     for item, count in basket.items():
@@ -65,6 +61,7 @@ def checkout(skus):
             total -= discount
 
     return total
+
 
 
 

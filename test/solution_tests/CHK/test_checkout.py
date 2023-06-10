@@ -17,17 +17,18 @@ class TestCheckout():
     def test_checkout_invalid(self):
         assert checkout("Z") == -1
 
-    def test_checkout_multibuy_a(self):
+    def test_checkout_3a(self):
         assert checkout("AAA") == 130
 
-    def test_checkout_multibuy_b(self):
+    def test_checkout_2b(self):
         assert checkout("BB") == 45
 
-    def test_checkout_multibuy_a_double(self):
-        assert checkout("AAAAAA") == 260
+    def test_checkout_6a(self):
+        assert checkout("AAAAAA") == 250
 
-    def test_checkout_multibuy_a_double_plus_another(self):
-        assert checkout("AAAAAAA") == 310
+    def test_checkout_7a(self):
+        assert checkout("AAAAAAA") == 300
 
     def test_checkout_multibuy_ab(self):
         assert checkout("AAABB") == 175
+
