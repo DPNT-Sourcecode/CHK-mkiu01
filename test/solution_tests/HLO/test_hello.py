@@ -7,5 +7,3 @@ class TestHello():
 
     def test_hello_mario(self):
         assert hello("Mario") == "Hello, Mario!"
-
-
