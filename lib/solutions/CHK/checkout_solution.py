@@ -1,7 +1,8 @@
 sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
 
 # Special offers dict mapping item to a tuple (count, price), for offers applying to individual SKUs
-special_offers = {'A': (3, 130), 'B': (2, 45)}
+#special_offers = {'A': (3, 130), 'B': (2, 45)}
+special_offers = [(5, 'A', 200), (3, 'A', 130), (2, 'B', 45)]
 
 # Special offers giving a free item when other items are purchased
 # dict mapping the purchased item to a tuple (count required, other item which is free)
@@ -34,6 +35,11 @@ def checkout(skus):
             return -1
 
     # calculate discount for special offers
+    for special_offer in special_offers:
+        count, item, price = special_offer
+        if item in item_counts:
+            pass
+
     for item, count in item_counts.items():
         if item in special_offers:
             # how many times are we repeating the offer in the basket
@@ -57,5 +63,6 @@ def checkout(skus):
             total -= discount
 
     return total
+
 
 
