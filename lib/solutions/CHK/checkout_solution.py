@@ -1,4 +1,4 @@
-sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15}
+sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
 
 # Special offers dict mapping item to a tuple (count, price)
 special_offers = {'A': (3, 130), 'B': (2, 45)}
@@ -28,3 +28,4 @@ def checkout(skus):
         else:
             return -1
     return total
+
