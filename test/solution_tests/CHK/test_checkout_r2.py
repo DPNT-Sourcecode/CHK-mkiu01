@@ -24,4 +24,3 @@ class TestCheckoutR2():
 
     def test_checkout_5a_4e_2b(self):
         assert checkout("AEAEAEAEABB") == 360
-
