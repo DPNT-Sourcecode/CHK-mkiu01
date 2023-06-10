@@ -1,3 +1,4 @@
+import re
 
 items = []
 
@@ -16,6 +17,7 @@ for item in items:
     if len(special_offers)>0:
         for special_offer in special_offers.split(", "):
             print(special_offer)
+            if re.match(, special_offer):
 #    print(f"    '{item[0]}': {item[1]},")
 #print("}")
 
