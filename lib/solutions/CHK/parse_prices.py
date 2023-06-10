@@ -1,5 +1,10 @@
+
+items = []
+
 with open("prices.txt") as file:
     while line := file.readline():
-        item, price, offers = list(filter(None, line.rstrip().split("|")))
-        print(f"{item}, {price}, {offers}")
+        items.append([x.strip() for x in line.rstrip().split("|") if x])
+
+print(items)
+
 
