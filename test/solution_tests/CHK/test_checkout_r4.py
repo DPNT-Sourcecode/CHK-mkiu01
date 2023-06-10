@@ -5,13 +5,13 @@ class TestCheckoutR4():
         assert checkout("G") == 20
 
     def test_checkout_k(self):
-        assert checkout("K") == 80
+        assert checkout("K") == 70
 
     def test_checkout_r(self):
         assert checkout("R") == 50
 
     def test_checkout_y(self):
-        assert checkout("Y") == 10
+        assert checkout("Y") == 20
 
     def test_checkout_10h(self):
         assert checkout("HHHHHHHHHH") == 80
@@ -24,5 +24,6 @@ class TestCheckoutR4():
 
     def test_checkout_4u(self):
         assert checkout("UUUU") == 120
+
 
 

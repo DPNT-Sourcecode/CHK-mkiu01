@@ -9,7 +9,7 @@ sku_prices = {
     'H': 10,
     'I': 35,
     'J': 60,
-    'K': 80,
+    'K': 70,
     'L': 90,
     'M': 15,
     'N': 40,
@@ -17,14 +17,14 @@ sku_prices = {
     'P': 50,
     'Q': 30,
     'R': 50,
-    'S': 30,
+    'S': 20,
     'T': 20,
     'U': 40,
     'V': 50,
     'W': 20,
-    'X': 90,
-    'Y': 10,
-    'Z': 50,
+    'X': 17,
+    'Y': 20,
+    'Z': 21,
 }
 
 # Special offers applying to individual SKUs
@@ -35,7 +35,7 @@ special_offers_discount = [
     (2, 'B', 45),
     (10, 'H', 80),
     (5, 'H', 45),
-    (2, 'K', 150),
+    (2, 'K', 120),
     (5, 'P', 200),
     (3, 'Q', 80),
     (3, 'V', 130),
@@ -96,4 +96,5 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
+
 
