@@ -52,6 +52,11 @@ special_offers_free_item = [
     (3, 'U', 'U'),
 ]
 
+group_discounts = [
+    (3, ('S', 'T', 'X', 'Y', 'Z'), 45),
+]
+
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -96,5 +101,6 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
+
 
 
