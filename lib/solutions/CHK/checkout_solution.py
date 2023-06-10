@@ -1,6 +1,7 @@
 sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
 
-# Special offers dict mapping item to a tuple (count, price), for offers applying to individual SKUs
+# Special offers applying to individual SKUs
+# List of tuples: number of items, item SKU, discounted price
 special_offers = [(5, 'A', 200), (3, 'A', 130), (2, 'B', 45)]
 
 # Special offers giving a free item when other items are purchased
@@ -29,6 +30,8 @@ def checkout(skus):
     # calculate discount for more offers (special offers with free items)
     for item, count in basket.items():
         if item in special_offers_free_item.keys():
+            while basket[item] >= offer_count:
+
             # how many times can we repeat the offer
             num_offers = basket[item] // special_offers_free_item[item][0]
             # calculate how many times we can actually do the discount (ensure that we have enough of the free items in the basket)
@@ -54,6 +57,7 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
+
 
 
 
