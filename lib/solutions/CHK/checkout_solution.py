@@ -22,16 +22,25 @@ def checkout(skus):
     total = 0
     for item, count in item_counts.items():
         if item in sku_prices.keys():
-            if item in special_offers:
-                # how many times are we repeating the offer in the basket
-                num_offers = count // special_offers[item][0]
-                # any additional item that we can't group in the offer
-                leftover_count = count % special_offers[item][0]
-                total += num_offers * special_offers[item][1] + leftover_count * sku_prices[item]
-            else:
-                total += sku_prices[item] * count
+            #if item in special_offers:
+            #    # how many times are we repeating the offer in the basket
+            #    num_offers = count // special_offers[item][0]
+            #    # any additional item that we can't group in the offer
+            #    leftover_count = count % special_offers[item][0]
+            #    total += num_offers * special_offers[item][1] + leftover_count * sku_prices[item]
+            #else:
+            total += sku_prices[item] * count
         else:
             return -1
+
+    # calculate discount for special offers
+    for item, count in item_counts.items():
+        if item in special_offers:
+            # how many times are we repeating the offer in the basket
+            num_offers = count // special_offers[item][0]
+            discount = num_offers * (sku_prices[item] * count - special_offers[item][1])
+            total -= discount
+
     # calculate discount for more offers
     for item, count in item_counts.items():
         if item in special_offers_free_item.keys():
@@ -49,3 +58,4 @@ def checkout(skus):
             total -= discount
 
     return total
+
