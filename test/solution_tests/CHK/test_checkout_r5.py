@@ -16,3 +16,13 @@ class TestCheckoutR5():
     def test_checkout_6s(self):
         assert checkout("SSSSSS") == 90
 
+    def test_checkout_sty_x(self):
+        assert checkout("STXY") == 45 + 17
+
+    def test_checkout_sty_x2(self):
+        assert checkout("XSTY") == 45 + 17
+
+    def test_checkout_stxyz(self):
+        assert checkout("STXYZ") == 45 + 17 + 20
+
+
