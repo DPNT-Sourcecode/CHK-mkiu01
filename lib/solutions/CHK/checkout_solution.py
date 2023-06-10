@@ -12,16 +12,16 @@ special_offers_free_item = {'E': (2, 'B')}
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    # dict mapping item to count in the basket
-    item_counts = {}
+    # dict mapping item to its count in the basket
+    basket = {}
     for item in skus:
-        if item in item_counts:
-            item_counts[item] += 1
+        if item in basket:
+            basket[item] += 1
         else:
-            item_counts[item] = 1
+            basket[item] = 1
     # sum up the total
     total = 0
-    for item, count in item_counts.items():
+    for item, count in basket.items():
         if item in sku_prices.keys():
             #if item in special_offers:
             #    # how many times are we repeating the offer in the basket
@@ -36,11 +36,13 @@ def checkout(skus):
 
     # calculate discount for special offers
     for special_offer in special_offers:
-        count, item, price = special_offer
-        if item in item_counts:
-            pass
+        offer_count, item, offer_price = special_offer
+        if item in basket:
+            while basket[item] >= offer_count:
+                
+                discount = full_price - offer_price
 
-    for item, count in item_counts.items():
+    for item, count in basket.items():
         if item in special_offers:
             # how many times are we repeating the offer in the basket
             num_offers = count // special_offers[item][0]
@@ -48,21 +50,22 @@ def checkout(skus):
             total -= discount
 
     # calculate discount for more offers
-    for item, count in item_counts.items():
+    for item, count in basket.items():
         if item in special_offers_free_item.keys():
             # how many times can we repeat the offer
-            num_offers = item_counts[item] // special_offers_free_item[item][0]
+            num_offers = basket[item] // special_offers_free_item[item][0]
             # calculate how many times we can actually do the discount (ensure that we have enough of the free items in the basket)
             free_item = special_offers_free_item[item][1]
             num_of_free_items = 0
-            if free_item in item_counts:
-                num_of_free_items = item_counts[free_item] 
+            if free_item in basket:
+                num_of_free_items = basket[free_item] 
             discounted_items = min(num_offers, num_of_free_items)
             # calculate the discount
             discount = sku_prices[free_item] * discounted_items
             total -= discount
 
     return total
+
 
 
 
