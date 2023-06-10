@@ -35,6 +35,7 @@ def checkout(skus):
     # calculate discount for more offers
     for item, count in item_counts.items():
         if item in special_offers_free_item.keys():
+            import pdb; pdb.set_trace()
             # how many times can we repeat the offer
             num_offers = item_counts[item] // special_offers_free_item[item][0]
             # calculate how many times we can actually do the discount (ensure that we have enough of the free items in the basket)
@@ -48,6 +49,7 @@ def checkout(skus):
             total -= discount
 
     return total
+
 
 
 
