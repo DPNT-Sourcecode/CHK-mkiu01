@@ -115,11 +115,13 @@ def checkout(skus):
             # get the current group
             current_group = discounted_items[:offer_count]
             # calculate the discount
-            discount = [for i in current_group]
+            discount = sum([sku_prices[i] for i in current_group]) - offer_price
+            total -= discount
             # remove the group from the list
             discounted_items = discounted_items[offer_count:]
         
     return total
+
 
 
 
