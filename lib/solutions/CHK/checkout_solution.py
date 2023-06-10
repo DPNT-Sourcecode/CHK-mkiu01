@@ -41,9 +41,16 @@ special_offers_discount = [
     (3, 'V', 130),
     (2, 'V', 90),
 ]
+
 # Special offers giving a free item when other items are purchased
 # List of tuples: number of items, item SKU, free SKU
-special_offers_free_item = [(2, 'E', 'B'), (2, 'F', 'F')]
+special_offers_free_item = [
+    (2, 'E', 'B'),
+    (2, 'F', 'F'),
+    (3, 'N', 'M'),
+    (3, 'R', 'Q'),
+    (3, 'U', 'U'),
+]
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -89,3 +96,4 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
+

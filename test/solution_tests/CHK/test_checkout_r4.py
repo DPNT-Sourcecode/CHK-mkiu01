@@ -12,3 +12,7 @@ class TestCheckoutR4():
 
     def test_checkout_y(self):
         assert checkout("Y") == 10
+
+    def test_checkout_10h(self):
+        assert checkout("HHHHHHHHHH") == 80
+
