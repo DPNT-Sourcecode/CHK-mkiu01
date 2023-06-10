@@ -25,6 +25,3 @@ print(offer_discount_list)
 print("special_offers_discount = {")
 #    print(f"    '{item[0]}': {item[1]},")
 #print("}")
-
-
-

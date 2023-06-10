@@ -37,4 +37,3 @@ class TestCheckout():
 
     def test_checkout_multibuy_ab(self):
         assert checkout("AAABB") == 175
-

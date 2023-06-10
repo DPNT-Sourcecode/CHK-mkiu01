@@ -79,5 +79,3 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
-
-

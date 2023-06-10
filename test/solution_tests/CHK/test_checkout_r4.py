@@ -12,4 +12,3 @@ class TestCheckoutR4():
 
     def test_checkout_y(self):
         assert checkout("Y") == 10
-
