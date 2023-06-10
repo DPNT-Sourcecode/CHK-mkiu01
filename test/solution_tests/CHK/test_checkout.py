@@ -15,7 +15,7 @@ class TestCheckout():
         assert checkout("ACCCDD") == 140
 
     def test_checkout_invalid(self):
-        assert checkout("Z") == -1
+        assert checkout("@") == -1
 
     def test_checkout_3a(self):
         assert checkout("AAA") == 130
@@ -37,3 +37,4 @@ class TestCheckout():
 
     def test_checkout_multibuy_ab(self):
         assert checkout("AAABB") == 175
+
