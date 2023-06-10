@@ -12,7 +12,3 @@ class TestCheckoutR2():
 
     def _test_checkout_4e_2b(self):
         assert checkout("EEEEBB") == 160
-
-
-
-
