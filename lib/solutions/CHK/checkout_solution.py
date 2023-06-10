@@ -1,4 +1,4 @@
-sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
+sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
 
 # Special offers applying to individual SKUs
 # List of tuples: number of items, item SKU, discounted price
@@ -7,6 +7,7 @@ special_offers_discount = [(5, 'A', 200), (3, 'A', 130), (2, 'B', 45)]
 # Special offers giving a free item when other items are purchased
 # List of tuples: number of items, item SKU, free SKU
 special_offers_free_item = [(2, 'E', 'B')]
+#special_offers_free_item = [(2, 'E', 'B'), (2, 'F', 'F')]
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -52,3 +53,4 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
+
