@@ -17,11 +17,13 @@ for item in items:
     if len(special_offers)>0:
         for special_offer in special_offers.split(", "):
             print(special_offer)
-            parse_offer = re.match("([1-9])([A-Z]) for (\d+)", special_offer)
+            parse_offer = re.match("(\d+)([A-Z]) for (\d+)", special_offer)
             if parse_offer:
-                offer_discount_list.append((parse_offer.group(1), parse_offer.group(2), parse_offer.group(3)))
+                offer_discount_list.append((int(parse_offer.group(1)), parse_offer.group(2), int(parse_offer.group(3))))
 
+offer_discount_list.sort(key=lambda item: (item[1], -int(item[0])))
 print(offer_discount_list)
+
 print("special_offers_discount = {")
 #    print(f"    '{item[0]}': {item[1]},")
 #print("}")
