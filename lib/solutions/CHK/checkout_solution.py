@@ -102,11 +102,13 @@ def checkout(skus):
     # calculate group discounts
     for offer in group_discounts:
         offer_count, any_item, offer_price = offer
+        # count the items to discount in desc price order,
+        # to ensure that we always favour the customer by giving the max discount
         total_any_item_count = 0
         for item in any_item:
             if item in basket:
                 total_any_item_count += basket[item]
-        if total_any_item_count>=offer_count:
-            
+        num_offers = total_any_item_count // offer_count
         
     return total
+
