@@ -2,7 +2,7 @@ import re
 
 items = []
 
-with open("prices.txt") as file:
+with open("prices2.txt") as file:
     while line := file.readline():
         items.append([x.strip() for x in line.rstrip().split("|") if x])
 
@@ -35,3 +35,4 @@ print("special_offers_free_item = [")
 for o in offer_free_list:
     print(f"    ({o[0]}, '{o[1]}', '{o[2]}'),")
 print("]")
+
