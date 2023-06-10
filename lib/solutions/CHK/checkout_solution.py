@@ -106,15 +106,20 @@ def checkout(skus):
         # to ensure that we always favour the customer by giving the max discount
         sorted_any_item = list(any_item)
         sorted_any_item.sort(key=lambda item: sku_prices[item], reverse=True)
-        
-
-
-        total_any_item_count = 0
+        # get all the potentially discounted items (ordered by price desc)
+        discounted_items = []
         for item in sorted_any_item:
             if item in basket:
-                total_any_item_count += basket[item]
-        num_offers = total_any_item_count // offer_count
+                discounted_items.extend([item] * basket[item])
+        while len(discounted_items)>=offer_count:
+            # get the current group
+            current_group = discounted_items[:offer_count]
+            # calculate the discount
+            discount = [for i in current_group]
+            # remove the group from the list
+            discounted_items = discounted_items[offer_count:]
         
     return total
+
 
 
