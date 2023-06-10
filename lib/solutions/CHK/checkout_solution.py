@@ -18,7 +18,7 @@ def checkout(skus):
             basket[item] += 1
         else:
             basket[item] = 1
-    # sum up the total
+    # sum up the total, without discounts
     total = 0
     for item, count in basket.items():
         if item in sku_prices.keys():
@@ -30,7 +30,7 @@ def checkout(skus):
     for offer in special_offers_free_item:
         offer_count, item, free_item = offer
         if item in basket:
-            while basket[item] >= offer_count:
+            while basket[item] >= (offer_count + 1 if item == free_item else offer_count):
                 # check that we have the free item in the basket
                 if free_item in basket and basket[free_item]>0:
                     discount = sku_prices[free_item]
@@ -52,5 +52,6 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
+
 
 
