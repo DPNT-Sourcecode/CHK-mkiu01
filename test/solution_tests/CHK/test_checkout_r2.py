@@ -13,8 +13,15 @@ class TestCheckoutR2():
     def test_checkout_4e_2b(self):
         assert checkout("EEEEBB") == 160
 
+    def test_checkout_4e_3b(self):
+        assert checkout("EEEEBBB") == 190
+
+    def test_checkout_4e_4b(self):
+        assert checkout("EEEEBBBB") == 205
+
     def test_checkout_a_4e_2b(self):
         assert checkout("EAEEEBB") == 210
 
     def test_checkout_5a_4e_2b(self):
         assert checkout("AEAEAEAEABB") == 360
+
