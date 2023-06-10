@@ -1,7 +1,12 @@
 sku_prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
 
-# Special offers dict mapping item to a tuple (count, price)
+# Special offers dict mapping item to a tuple (count, price), for offers applying to individual SKUs
 special_offers = {'A': (3, 130), 'B': (2, 45)}
+
+# Special offers giving a free item when other items are purchased
+# dict mapping the purchased item to a tuple (count required, other item which is free)
+special_offers_free_item = {'E': (2, 'B')}
+
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -28,4 +33,5 @@ def checkout(skus):
         else:
             return -1
     return total
+
 
