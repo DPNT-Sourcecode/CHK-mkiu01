@@ -25,4 +25,5 @@ class TestCheckoutR5():
     def test_checkout_stxyz(self):
         assert checkout("STXYZ") == 45 + 17 + 20
 
-
+    def test_checkout_stxyz(self):
+        assert checkout("SSXXYYZZ") == 45 * 2 + 17 * 2

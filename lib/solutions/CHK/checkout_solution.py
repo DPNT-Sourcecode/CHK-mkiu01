@@ -121,7 +121,3 @@ def checkout(skus):
             discounted_items = discounted_items[offer_count:]
         
     return total
-
-
-
-
