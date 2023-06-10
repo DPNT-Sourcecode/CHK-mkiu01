@@ -31,23 +31,14 @@ def checkout(skus):
         offer_count, item, free_item = offer
         if item in basket:
             while basket[item] >= offer_count:
-                pass
-
-    #for item, count in basket.items():
-    #    if item in special_offers_free_item.keys():
-    #        while basket[item] >= offer_count:
-    #        # how many times can we repeat the offer
-    #        num_offers = basket[item] // special_offers_free_item[item][0]
-    #        # calculate how many times we can actually do the discount (ensure that we have enough of the free items in the basket)
-    #        free_item = special_offers_free_item[item][1]
-    #        num_of_free_items = 0
-    #        if free_item in basket:
-    #            num_of_free_items = basket[free_item] 
-    #        discounted_items = min(num_offers, num_of_free_items)
-    #        # calculate the discount
-    #        discount = sku_prices[free_item] * discounted_items
-    #        total -= discount
-
+                # check that we have the free item in the basket
+                if free_item in basket and basket[free_item]>0:
+                    discount = sku_prices[free_item]
+                    total -= discount
+                    basket[free_item] -= 1
+                # remove items from the basket after calculating the discount
+                basket[item] -= offer_count
+                    
     # calculate discount for special offers
     for offer in special_offers_discount:
         offer_count, item, offer_price = offer
@@ -61,11 +52,3 @@ def checkout(skus):
                 basket[item] -= offer_count
 
     return total
-
-
-
-
-
-
-
-
