@@ -56,7 +56,6 @@ group_discounts = [
     (3, ('S', 'T', 'X', 'Y', 'Z'), 45),
 ]
 
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -100,7 +99,14 @@ def checkout(skus):
                 # remove item from the basket after calculating the discount
                 basket[item] -= offer_count
 
+    # calculate group discounts
+    for offer in group_discounts:
+        offer_count, any_item, offer_price = offer
+        total_any_item_count = 0
+        for item in any_item:
+            if item in basket:
+                total_any_item_count += basket[item]
+        if total_any_item_count>=offer_count:
+            
+        
     return total
-
-
-

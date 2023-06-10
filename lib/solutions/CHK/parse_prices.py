@@ -35,4 +35,3 @@ print("special_offers_free_item = [")
 for o in offer_free_list:
     print(f"    ({o[0]}, '{o[1]}', '{o[2]}'),")
 print("]")
-

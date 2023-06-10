@@ -24,6 +24,3 @@ class TestCheckoutR4():
 
     def test_checkout_4u(self):
         assert checkout("UUUU") == 120
-
-
-
