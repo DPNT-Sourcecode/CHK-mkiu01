@@ -17,10 +17,18 @@ def checkout(skus):
     total = 0
     for item, count in item_counts.items():
         if item in sku_prices.keys():
-            total += sku_prices[item] * count
+            if item in special_offers:
+                offer_count, offer_price = special_offers[item]
+                num_offers = count // offer_count
+                leftover_count = count % offer_count
+
+                pass
+            else:
+                total += sku_prices[item] * count
         else:
             return -1
     return total
+
 
 
 
