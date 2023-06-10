@@ -29,8 +29,18 @@ sku_prices = {
 
 # Special offers applying to individual SKUs
 # List of tuples: number of items, item SKU, discounted price
-special_offers_discount = [(5, 'A', 200), (3, 'A', 130), (2, 'B', 45)]
-
+special_offers_discount = [
+    (5, 'A', 200),
+    (3, 'A', 130),
+    (2, 'B', 45),
+    (10, 'H', 80),
+    (5, 'H', 45),
+    (2, 'K', 150),
+    (5, 'P', 200),
+    (3, 'Q', 80),
+    (3, 'V', 130),
+    (2, 'V', 90),
+]
 # Special offers giving a free item when other items are purchased
 # List of tuples: number of items, item SKU, free SKU
 special_offers_free_item = [(2, 'E', 'B'), (2, 'F', 'F')]

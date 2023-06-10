@@ -12,6 +12,7 @@ for item in items:
 print("}")
 
 offer_discount_list = []
+offer_free_list = []
 for item in items:
     special_offers = item[2]
     if len(special_offers)>0:
@@ -20,10 +21,9 @@ for item in items:
             parse_offer = re.match("(\d+)([A-Z]) for (\d+)", special_offer)
             if parse_offer:
                 offer_discount_list.append((int(parse_offer.group(1)), parse_offer.group(2), int(parse_offer.group(3))))
-
 offer_discount_list.sort(key=lambda item: (item[1], -int(item[0])))
-print(offer_discount_list)
 
-print("special_offers_discount = {")
-#    print(f"    '{item[0]}': {item[1]},")
-#print("}")
+print("special_offers_discount = [")
+for o in offer_discount_list:
+    print(f"    ({o[0]}, '{o[1]}', {o[2]}),")
+print("]")
